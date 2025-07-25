@@ -23,8 +23,26 @@ const RecipeDetails = () => {
   return (
     <div>
       <h1>{recipe.title}</h1>
-      <p><strong>Description:</strong></p>
-      <p>{recipe.description}</p>
+      
+      <div style={{ marginBottom: '20px' }}>
+        <h3>Description</h3>
+        <p>{recipe.description}</p>
+      </div>
+      
+      {recipe.ingredients && (
+        <div style={{ marginBottom: '20px' }}>
+          <h3>Ingredients</h3>
+          <p style={{ whiteSpace: 'pre-line' }}>{recipe.ingredients}</p>
+        </div>
+      )}
+      
+      {recipe.cookingTime && (
+        <div style={{ marginBottom: '20px' }}>
+          <h3>Cooking Time</h3>
+          <p>{recipe.cookingTime}</p>
+        </div>
+      )}
+      
       <div style={{ marginTop: '20px' }}>
         <EditRecipeForm recipe={recipe} />
         <DeleteRecipeButton recipeId={recipe.id} />

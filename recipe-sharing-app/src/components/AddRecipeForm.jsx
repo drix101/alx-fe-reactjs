@@ -8,17 +8,27 @@ const AddRecipeForm = () => {
   const navigate = useNavigate()
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
+  const [ingredients, setIngredients] = useState('')
+  const [cookingTime, setCookingTime] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!title.trim() || !description.trim()) {
-      alert('Both fields are required')
+      alert('Title and description are required')
       return 
     }
 
-    addRecipe({ id: Date.now(), title: title.trim(), description: description.trim() })
+    addRecipe({ 
+      id: Date.now(), 
+      title: title.trim(), 
+      description: description.trim(),
+      ingredients: ingredients.trim(),
+      cookingTime: cookingTime.trim()
+    })
     setTitle('')
     setDescription('')
+    setIngredients('')
+    setCookingTime('')
     navigate('/')
   }
 
@@ -56,6 +66,37 @@ const AddRecipeForm = () => {
               resize: 'vertical'
             }}
           ></textarea>
+        </div>
+        <div style={{ marginBottom: '15px' }}>
+          <textarea
+            placeholder="Ingredients (one per line or comma-separated)"
+            value={ingredients}
+            onChange={(e) => setIngredients(e.target.value)}
+            style={{
+              width: '100%',
+              padding: '10px',
+              border: '1px solid #ddd',
+              borderRadius: '4px',
+              fontSize: '16px',
+              minHeight: '80px',
+              resize: 'vertical'
+            }}
+          ></textarea>
+        </div>
+        <div style={{ marginBottom: '15px' }}>
+          <input
+            type="text"
+            placeholder="Cooking time (e.g., 30 minutes, 1 hour)"
+            value={cookingTime}
+            onChange={(e) => setCookingTime(e.target.value)}
+            style={{
+              width: '100%',
+              padding: '10px',
+              border: '1px solid #ddd',
+              borderRadius: '4px',
+              fontSize: '16px'
+            }}
+          />
         </div>
         <div style={{ display: 'flex', gap: '10px' }}>
           <button 

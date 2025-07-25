@@ -1,18 +1,29 @@
 import { Link } from 'react-router-dom';
 import { useRecipeStore } from './recipeStore';
+import SearchBar from './SearchBar';
 
 export const RecipeList = () => {
-  const recipes = useRecipeStore((state) => state.recipes)
+  const { recipes, searchTerm, filteredRecipes } = useRecipeStore();
+  
+  // Use filtered recipes if there's a search term, otherwise use all recipes
+  const displayRecipes = searchTerm ? filteredRecipes : recipes;
 
   return (
     <div>
       <h2>All Recipes</h2>
-      {recipes.length === 0 ? (
+      <SearchBar />
+      
+      {displayRecipes.length === 0 ? (
         <div>
-</div>
+          {searchTerm ? (
+            <p>No recipes found matching "{searchTerm}". <Link to="/add">Add a new recipe!</Link></p>
+          ) : (
+            <p>No recipes available. </p>
+          )}
+        </div>
       ) : (
         <ul style={{ listStyle: 'none', padding: 0 }}>
-          {recipes.map((recipe) => (
+          {displayRecipes.map((recipe) => (
             <li key={recipe.id} style={{ 
               border: '1px solid #ddd', 
               margin: '10px 0', 
@@ -37,6 +48,16 @@ export const RecipeList = () => {
                   : recipe.description
                 }
               </p>
+              {recipe.cookingTime && (
+                <p style={{ margin: '5px 0 0 0', color: '#888', fontSize: '14px' }}>
+                  ⏱️ {recipe.cookingTime}
+                </p>
+              )}
+              {recipe.ingredients && (
+                <p style={{ margin: '5px 0 0 0', color: '#888', fontSize: '14px' }}>
+                  🥘 {recipe.ingredients.split('\n')[0].substring(0, 50)}...
+                </p>
+              )}
             </li>
           ))}
         </ul>
