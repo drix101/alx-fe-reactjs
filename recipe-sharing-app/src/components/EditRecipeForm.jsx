@@ -8,8 +8,8 @@ const EditRecipeForm = ({ recipe }) => {
   const [description, setDescription] = useState(recipe.description);
   const [isEditing, setIsEditing] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     if (!title.trim() || !description.trim()) {
       alert('Both fields are required');
       return;
