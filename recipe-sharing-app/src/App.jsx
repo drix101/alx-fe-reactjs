@@ -1,16 +1,13 @@
-import React from 'react'
-import RecipeList from './Components/RecipeList';
-import AddRecipeForm from './Components/AddRecipeForm';
+import './App.css'
+import AddRecipeForm from './components/AddRecipeForm'
+import RecipeList from './components/RecipeList'
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <h1>Recipe Sharing List</h1>
-      <React />
+    <div className="App">
+      <h1>Recipe Sharing App</h1>
+      <AddRecipeForm />
       <RecipeList />
-      <div>
-        <AddRecipeForm />
-      </div>
     </div>
   )
 }
