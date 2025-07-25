@@ -1,9 +1,9 @@
-import create from 'zustand'
+// src/store/recipeStore.js
+import { create } from 'zustand'
 
-const useRecipeStore = create(set => ({
+export const useRecipeStore = create((set) => ({
   recipes: [],
-  addRecipe: (newRecipe) => set(state => ({ recipes: [...state.recipes, newRecipe] })),
-  setRecipes: (recipes) => set({ recipes })
-}));
-
-export default zustand;
+  addRecipe: (newRecipe) =>
+    set((state) => ({ recipes: [...state.recipes, newRecipe] })),
+  setRecipes: (recipes) => set({ recipes }),
+}))
