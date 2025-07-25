@@ -1,41 +1,27 @@
 import { Link } from 'react-router-dom';
 import { useRecipeStore } from './recipeStore';
-import SearchBar from './SearchBar';
-import FavoriteButton from './FavoriteButton';
-import Dashboard from './Dashboard';
 
-export const RecipeList = () => {
-  const { recipes, searchTerm, filteredRecipes } = useRecipeStore();
+const FavoritesList = () => {
+  const { recipes, favorites, removeFavorite } = useRecipeStore();
   
-  // Use filtered recipes if there's a search term, otherwise use all recipes
-  const displayRecipes = searchTerm ? filteredRecipes : recipes;
+  // Get favorite recipes by mapping favorite IDs to actual recipe objects
+  const favoriteRecipes = recipes.filter(recipe => favorites.includes(recipe.id));
 
   return (
     <div>
-      <h2>All Recipes</h2>
-      
-      {/* Show Dashboard only when not searching */}
-      {!searchTerm && <Dashboard />}
-      
-      <SearchBar />
-      
-      {displayRecipes.length === 0 ? (
-        <div>
-          {searchTerm ? (
-            <p>No recipes found matching "{searchTerm}". <Link to="/add">Add a new recipe!</Link></p>
-          ) : (
-            <p>No recipes available. </p>
-          )}
-        </div>
+      <h2>My Favorites</h2>
+      {favoriteRecipes.length === 0 ? (
+        <p>No favorite recipes yet. Start adding some!</p>
       ) : (
         <ul style={{ listStyle: 'none', padding: 0 }}>
-          {displayRecipes.map((recipe) => (
+          {favoriteRecipes.map((recipe) => (
             <li key={recipe.id} style={{ 
               border: '1px solid #ddd', 
               margin: '10px 0', 
               padding: '15px',
               borderRadius: '5px',
-              backgroundColor: '#f9f9f9'
+              backgroundColor: '#fff3cd',
+              borderColor: '#ffeaa7'
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div style={{ flex: 1 }}>
@@ -48,7 +34,7 @@ export const RecipeList = () => {
                       fontWeight: 'bold'
                     }}
                   >
-                    {recipe.title}
+                    ⭐ {recipe.title}
                   </Link>
                   <p style={{ margin: '5px 0 0 0', color: '#666' }}>
                     {recipe.description.length > 100 
@@ -67,25 +53,28 @@ export const RecipeList = () => {
                     </p>
                   )}
                 </div>
-                <div style={{ marginLeft: '10px' }}>
-                  <FavoriteButton recipeId={recipe.id} />
-                </div>
+                <button 
+                  onClick={() => removeFavorite(recipe.id)}
+                  style={{
+                    backgroundColor: '#dc3545',
+                    color: 'white',
+                    border: 'none',
+                    padding: '5px 10px',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontSize: '12px',
+                    marginLeft: '10px'
+                  }}
+                >
+                  Remove
+                </button>
               </div>
             </li>
           ))}
         </ul>
       )}
-      <div style={{ marginTop: '20px' }}>
-        <Link to="/add" style={{ 
-          textDecoration: 'none',
-          backgroundColor: '#007bff',
-          color: 'white',
-          padding: '10px 20px',
-          borderRadius: '5px'
-        }}>
-          Add New Recipe
-        </Link>
-      </div>
-    </div> 
+    </div>
   );
 };
+
+export default FavoritesList; 
