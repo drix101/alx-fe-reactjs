@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Search from './components/Search';
-import { searchUsers } from './services/githubService';
+import { fetchUserData } from './services/githubService';
 
 function App() {
   const [results, setResults] = useState([]);
@@ -11,7 +11,7 @@ function App() {
     try {
       setSearchParams(params);
       setPage(1);
-      const data = await searchUsers(params);
+      const data = await fetchUserData(params);
       setResults(data.items || []);
     } catch (error) {
       console.error(error.message);
