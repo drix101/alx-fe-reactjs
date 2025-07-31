@@ -4,8 +4,8 @@ const BASE_URL = 'https://api.github.com/users';
 
 /**
  * Fetch GitHub user data by username.
- * @param {string} username - The GitHub username to search.
- * @returns {Promise<Object>} - The user data object.
+ * @param {string} username
+ * @returns {Promise<Object>}
  */
 export const fetchUserData = async (username) => {
   try {
@@ -18,6 +18,4 @@ export const fetchUserData = async (username) => {
         : 'Failed to fetch user data'
     );
   }
-}; 
-
-export default githubService;
+};
