@@ -40,17 +40,19 @@ const Search = () => {
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
 
-      {userData && (
+    {userData && (
         <div className="user-info">
-          <img src={userData.avatar_url} alt="User avatar" width="100" />
-          <h2>{userData.name || 'No name provided'}</h2>
-          <p>Public Repos: {userData.public_repos}</p>
-          <p>Location: {userData.location || 'N/A'}</p>
-          <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
-            View GitHub Profile
-          </a>
-        </div>
-      )}
+        <img src={userData.avatar_url} alt="User avatar" width="100" />
+        <h2>{userData.name || 'No name provided'}</h2>
+        <p><strong>Username:</strong> {userData.login}</p> {/* 👈 This is the fix */}
+        <p><strong>Public Repos:</strong> {userData.public_repos}</p>
+        <p><strong>Location:</strong> {userData.location || 'N/A'}</p>
+        <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
+        View GitHub Profile
+    </a>
+  </div>
+)}
+
     </div>
   );
 };
