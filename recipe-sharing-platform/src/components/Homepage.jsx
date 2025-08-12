@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import data from "../data.json";
 
-const Homepage = () => {
+const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
@@ -38,4 +38,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default HomePage;
