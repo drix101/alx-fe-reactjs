@@ -8,12 +8,17 @@ const HomePage = () => {
   useEffect(() => {
     // Simulate fetching from local JSON file
     setRecipes(recipesData);
-  }, []);
+  }, []); 
+
+  const handleRecipeClick = (recipeId) => {
+    // For now, just log the click. We can implement routing later
+    console.log(`Clicked recipe ${recipeId}`);
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-8">Recipe Sharing Platform</h1>
-      <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
         {recipes.map((recipe) => (
           <div
             key={recipe.id}
@@ -27,12 +32,12 @@ const HomePage = () => {
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-2">{recipe.title}</h2>
               <p className="text-gray-600 mb-4">{recipe.summary}</p>
-              <Link
-                to={`/recipes/${recipe.id}`}
-                className="text-indigo-500 hover:text-indigo-700 font-medium"
+              <button
+                onClick={() => handleRecipeClick(recipe.id)}
+                className="text-indigo-500 hover:text-indigo-700 font-medium cursor-pointer"
               >
                 View Details →
-              </Link>
+              </button>
             </div>
           </div>
         ))}
