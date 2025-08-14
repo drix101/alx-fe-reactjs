@@ -1,19 +1,13 @@
 import React, { useState, useEffect } from "react";
 import recipesData from "../data.json";
-import { Link } from "react-router-dom";
 
-const HomePage = () => {
+const HomePage = ({ onRecipeSelect }) => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
     // Simulate fetching from local JSON file
     setRecipes(recipesData);
   }, []); 
-
-  const handleRecipeClick = (recipeId) => {
-    // For now, just log the click. We can implement routing later
-    console.log(`Clicked recipe ${recipeId}`);
-  };
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -32,9 +26,35 @@ const HomePage = () => {
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-2">{recipe.title}</h2>
               <p className="text-gray-600 mb-4">{recipe.summary}</p>
+              
+              {/* Recipe Meta Information */}
+              <div className="flex items-center justify-between mb-4 text-sm text-gray-500">
+                <span>⏱️ {recipe.prepTime}</span>
+                <span>🔥 {recipe.cookTime}</span>
+                <span>👥 {recipe.servings} servings</span>
+              </div>
+              
+              {/* Difficulty and Tags */}
+              <div className="flex items-center justify-between mb-4">
+                <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                  recipe.difficulty === 'Easy' ? 'bg-green-100 text-green-800' :
+                  recipe.difficulty === 'Medium' ? 'bg-yellow-100 text-yellow-800' :
+                  'bg-red-100 text-red-800'
+                }`}>
+                  {recipe.difficulty}
+                </span>
+                <div className="flex gap-1">
+                  {recipe.tags.slice(0, 2).map((tag, index) => (
+                    <span key={index} className="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
               <button
-                onClick={() => handleRecipeClick(recipe.id)}
-                className="text-indigo-500 hover:text-indigo-700 font-medium cursor-pointer"
+                onClick={() => onRecipeSelect(recipe)}
+                className="block w-full text-center bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600 transition-colors font-medium"
               >
                 View Details →
               </button>

@@ -3,24 +3,126 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/400x300/FF6B6B/FFFFFF?text=Spaghetti+Carbonara",
+    "prepTime": "15 min",
+    "cookTime": "20 min",
+    "servings": 4,
+    "difficulty": "Medium",
+    "tags": ["Italian", "Pasta", "Quick", "Dinner"],
+    "ingredients": [
+      "400g spaghetti",
+      "200g pancetta or guanciale, cubed",
+      "4 large eggs",
+      "100g Pecorino Romano cheese, grated",
+      "100g Parmigiano-Reggiano cheese, grated",
+      "4 cloves garlic, minced",
+      "1/2 cup reserved pasta water",
+      "Freshly ground black pepper",
+      "Salt to taste",
+      "Fresh parsley, chopped (optional)"
+    ],
+    "instructions": [
+      "Bring a large pot of salted water to boil and cook spaghetti according to package directions until al dente.",
+      "While pasta cooks, heat a large skillet over medium heat and cook pancetta until crispy, about 5-7 minutes.",
+      "Add minced garlic to the skillet and cook for 1 minute until fragrant.",
+      "In a bowl, whisk together eggs, grated cheeses, and black pepper.",
+      "Drain pasta, reserving 1/2 cup of pasta water.",
+      "Add hot pasta to the skillet with pancetta and garlic.",
+      "Remove skillet from heat and quickly stir in the egg mixture, adding reserved pasta water as needed to create a creamy sauce.",
+      "Serve immediately with extra cheese and black pepper on top."
+    ],
+    "nutrition": {
+      "calories": "650",
+      "protein": "28g",
+      "carbs": "75g",
+      "fat": "28g",
+      "fiber": "3g"
+    }
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/400x300/4ECDC4/FFFFFF?text=Chicken+Tikka+Masala",
+    "prepTime": "30 min",
+    "cookTime": "45 min",
+    "servings": 6,
+    "difficulty": "Medium",
+    "tags": ["Indian", "Chicken", "Curry", "Spicy"],
+    "ingredients": [
+      "1kg chicken breast, cut into 2-inch pieces",
+      "1 cup plain yogurt",
+      "2 tbsp lemon juice",
+      "2 tbsp garam masala",
+      "1 tbsp ground cumin",
+      "1 tbsp ground coriander",
+      "1 tsp turmeric",
+      "1 tsp chili powder",
+      "2 tbsp vegetable oil",
+      "1 large onion, finely chopped",
+      "4 cloves garlic, minced",
+      "1-inch ginger, grated",
+      "2 cans (400g each) crushed tomatoes",
+      "1 cup heavy cream",
+      "2 tbsp butter",
+      "Fresh cilantro, chopped",
+      "Salt to taste"
+    ],
+    "instructions": [
+      "In a large bowl, mix yogurt, lemon juice, garam masala, cumin, coriander, turmeric, and chili powder.",
+      "Add chicken pieces and marinate for at least 2 hours or overnight in the refrigerator.",
+      "Preheat oven to 400°F (200°C). Place marinated chicken on a baking sheet and bake for 20-25 minutes until cooked through.",
+      "In a large skillet, heat oil over medium heat. Add onions and cook until soft and golden, about 8-10 minutes.",
+      "Add garlic and ginger, cook for 1 minute until fragrant.",
+      "Add crushed tomatoes and simmer for 10 minutes until thickened.",
+      "Stir in heavy cream and butter, then add the cooked chicken pieces.",
+      "Simmer for 10-15 minutes until sauce is creamy and chicken is well-coated.",
+      "Garnish with fresh cilantro and serve with rice or naan bread."
+    ],
+    "nutrition": {
+      "calories": "420",
+      "protein": "35g",
+      "carbs": "12g",
+      "fat": "28g",
+      "fiber": "3g"
+    }
   },
   {
     "id": 3,
-    "title": "Chicken Tikka Masala",
-    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/150"
-  },
-  {
-    "id": 4,
-    "title": "Chicken Tikka Masala",
-    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/150"
+    "title": "Classic Caesar Salad",
+    "summary": "A crisp romaine lettuce salad with creamy Caesar dressing, croutons, and Parmesan cheese.",
+    "image": "https://via.placeholder.com/400x300/45B7D1/FFFFFF?text=Caesar+Salad",
+    "prepTime": "20 min",
+    "cookTime": "10 min",
+    "servings": 4,
+    "difficulty": "Easy",
+    "tags": ["Salad", "Vegetarian", "Quick", "Healthy"],
+    "ingredients": [
+      "2 heads romaine lettuce, chopped",
+      "1/2 cup extra virgin olive oil",
+      "3 cloves garlic, minced",
+      "2 tbsp Dijon mustard",
+      "2 tbsp lemon juice",
+      "1 tbsp Worcestershire sauce",
+      "1/2 cup grated Parmesan cheese",
+      "1 cup croutons",
+      "Salt and black pepper to taste",
+      "2 anchovy fillets, minced (optional)"
+    ],
+    "instructions": [
+      "In a small bowl, whisk together olive oil, garlic, Dijon mustard, lemon juice, and Worcestershire sauce.",
+      "Add minced anchovies if using, and season with salt and pepper.",
+      "In a large salad bowl, add chopped romaine lettuce.",
+      "Pour the dressing over the lettuce and toss gently to coat.",
+      "Add croutons and grated Parmesan cheese, then toss again.",
+      "Serve immediately with extra Parmesan cheese on top."
+    ],
+    "nutrition": {
+      "calories": "280",
+      "protein": "8g",
+      "carbs": "8g",
+      "fat": "26g",
+      "fiber": "4g"
+    }
   }
 ]
