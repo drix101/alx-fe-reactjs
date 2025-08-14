@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import recipesData from "../data.json";
 
-const HomePage = ({ onRecipeSelect }) => {
+const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
@@ -52,12 +53,12 @@ const HomePage = ({ onRecipeSelect }) => {
                 </div>
               </div>
               
-              <button
-                onClick={() => onRecipeSelect(recipe)}
+              <Link
+                to={`/recipes/${recipe.id}`}
                 className="block w-full text-center bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600 transition-colors font-medium"
               >
                 View Details →
-              </button>
+              </Link>
             </div>
           </div>
         ))}

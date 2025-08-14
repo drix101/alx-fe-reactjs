@@ -1,12 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import recipesData from "../data.json";
 
-const RecipeDetails = ({ recipe }) => {
+const RecipeDetails = () => {
+  const { id } = useParams();
+  const [recipe, setRecipe] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate fetching recipe data
+    const foundRecipe = recipesData.find(r => r.id === parseInt(id));
+    if (foundRecipe) {
+      setRecipe(foundRecipe);
+    }
+    setLoading(false);
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-500 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading recipe...</p>
+        </div>
+      </div>
+    );
+  }
+
   if (!recipe) {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-800 mb-4">Recipe Not Found</h1>
           <p className="text-gray-600 mb-6">The recipe you're looking for doesn't exist.</p>
+          <Link 
+            to="/" 
+            className="inline-block bg-indigo-500 text-white px-6 py-3 rounded-lg hover:bg-indigo-600 transition-colors"
+          >
+            Back to Home
+          </Link>
         </div>
       </div>
     );
@@ -14,6 +46,16 @@ const RecipeDetails = ({ recipe }) => {
 
   return (
     <div className="container mx-auto px-4 py-8">
+      {/* Back Button */}
+      <div className="mb-6">
+        <Link 
+          to="/" 
+          className="inline-flex items-center text-indigo-500 hover:text-indigo-700 font-medium"
+        >
+          ← Back to Recipes
+        </Link>
+      </div>
+
       {/* Recipe Header */}
       <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
         <div className="md:flex">
@@ -34,7 +76,7 @@ const RecipeDetails = ({ recipe }) => {
                 <p className="text-sm text-gray-500">Prep Time</p>
                 <p className="text-lg font-semibold text-gray-800">{recipe.prepTime}</p>
               </div>
-              <div className="text-center p-3 bg-gray-50 rounded-lg">
+              <div className="text-center p-2 bg-gray-50 rounded-lg">
                 <p className="text-sm text-gray-500">Cook Time</p>
                 <p className="text-lg font-semibold text-gray-800">{recipe.cookTime}</p>
               </div>
