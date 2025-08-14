@@ -12,7 +12,17 @@ const HomePage = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-8">Recipe Sharing Platform</h1>
+      {/* Header with Add Recipe Button */}
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
+        <h1 className="text-3xl font-bold text-center sm:text-left mb-4 sm:mb-0">Recipe Sharing Platform</h1>
+        <Link
+          to="/add-recipe"
+          className="bg-indigo-500 text-white px-6 py-3 rounded-lg hover:bg-indigo-600 transition-colors font-medium shadow-md hover:shadow-lg"
+        >
+          + Add New Recipe
+        </Link>
+      </div>
+
       <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
         {recipes.map((recipe) => (
           <div
