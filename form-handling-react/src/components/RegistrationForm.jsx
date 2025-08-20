@@ -7,6 +7,8 @@ export default function RegistrationForm() {
     password: "",
   });
 
+  const { username, email, password } = formData;
+
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
@@ -26,7 +28,7 @@ export default function RegistrationForm() {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
     setErrors(validationErrors);
@@ -47,7 +49,7 @@ export default function RegistrationForm() {
         <input
           name="username"
           placeholder="Username"
-          value={formData.username}
+          value={username}
           onChange={handleChange}
         />
         {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
@@ -55,7 +57,7 @@ export default function RegistrationForm() {
         <input
           name="email"
           placeholder="Email"
-          value={formData.email}
+          value={email}
           onChange={handleChange}
         />
         {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
@@ -64,7 +66,7 @@ export default function RegistrationForm() {
           type="password"
           name="password"
           placeholder="Password"
-          value={formData.password}
+          value={password}
           onChange={handleChange}
         />
         {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
