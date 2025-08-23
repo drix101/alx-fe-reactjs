@@ -14,7 +14,7 @@ export default function PostsComponent() {
   const queryClient = useQueryClient();
 
   const {
-    data,
+    data: posts,
     error,
     isLoading,
     isError,
@@ -26,6 +26,9 @@ export default function PostsComponent() {
     // Demonstrate initial instant render & later background update:
     placeholderData: (prev) => prev, // show cached data immediately if any
     // staleTime is already set globally; you can override here if needed.
+    cacheTime: 1000 * 60 * 5, // 5 minutes
+    refetchOnWindowFocus: false,
+    keepPreviousData: true,
   });
 
   const handleManualRefetch = () => {
@@ -57,7 +60,7 @@ export default function PostsComponent() {
       </div>
 
       <ul style={{ marginTop: 16 }}>
-        {data.slice(0, 10).map((post) => (
+        {posts.map((post) => (
           <li key={post.id} style={{ marginBottom: 8 }}>
             <strong>{post.title}</strong>
             <div>{post.body}</div>
