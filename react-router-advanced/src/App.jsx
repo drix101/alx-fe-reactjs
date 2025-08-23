@@ -7,6 +7,7 @@ import Blog from "./components/Blog";
 import Post from "./components/Post";
 import Profile from "./components/Profile";
 import Login from "./pages/Login";
+import BlogPost from "./components/BlogPost"; // Add this import
 
 // Fake authentication simulation
 const isAuthenticated = false; // toggle true/false to test
@@ -26,7 +27,7 @@ function App() {
 
         {/* Blog dynamic routes */}
         <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<Post />} />
+        <Route path="/blog/:id" element={<BlogPost />} /> {/* Use BlogPost here */}
 
         {/* Protected Routes */}
         <Route
