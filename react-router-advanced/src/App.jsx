@@ -8,6 +8,7 @@ import Post from "./components/Post";
 import Profile from "./components/Profile";
 import Login from "./pages/Login";
 import BlogPost from "./components/BlogPost"; // Add this import
+import ProtectedRoute from "./components/ProtectedRoute";
 
 // Fake authentication simulation
 const isAuthenticated = false; // toggle true/false to test
