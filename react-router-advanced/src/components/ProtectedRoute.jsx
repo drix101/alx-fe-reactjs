@@ -1,10 +1,10 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-
-// You can pass isAuthenticated as a prop or import it from a context/store
-const isAuthenticated = false; // Replace with your actual auth logic
+import { useAuth } from "../hooks/useAuth"; // Adjust path if needed
 
 const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated } = useAuth();
+
   return isAuthenticated ? children : <Navigate to="/login" replace />;
 };
 
