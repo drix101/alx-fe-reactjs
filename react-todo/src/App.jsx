@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import TodoList from './TodoList.jsx'; // Import the TodoList component
 
 function App() {
   const [todos, setTodos] = useState([
@@ -43,14 +44,14 @@ function App() {
         <input name="todo" type="text" placeholder="Add a new todo" />
         <button type="submit">Add Todo</button>
       </form>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
-            <span onClick={() => toggleTodo(todo.id)}>{todo.text}</span>
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+
+      {/* The TodoList component is used here,
+          and the state and functions are passed as props. */}
+      <TodoList
+        todos={todos}
+        toggleTodo={toggleTodo}
+        deleteTodo={deleteTodo}
+      />
     </div>
   );
 }
